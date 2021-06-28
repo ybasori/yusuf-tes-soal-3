@@ -19,6 +19,8 @@
         "@fortawesome/fontawesome-free": "^5.15.3",
         "axios": "^0.21.1",
         "babel-loader": "^8.2.2",
+        "body-parser": "^1.19.0",
+        "cors": "^2.8.5",
         "css-loader": "^5.2.6",
         "express": "^4.17.1",
         "mini-css-extract-plugin": "^1.6.1",

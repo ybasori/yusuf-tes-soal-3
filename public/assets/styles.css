@@ -105,6 +105,8 @@ body {
         background-color: #4eaf52; }
       .home .content button.btn-orange {
         background-color: #fcae73; }
+      .home .content button.btn-small {
+        min-width: 50px; }
     .home .content .action {
       display: flex;
       gap: 1rem;
@@ -118,13 +120,24 @@ body {
           border-radius: 5px; }
     .home .content .datatable {
       box-sizing: border-box;
-      display: flex;
       border-radius: 5px;
       width: 100%;
       background-color: white;
       margin-top: 35px;
       padding: 5px;
       border: 1px #eceef1 solid; }
-      .home .content .datatable .btn-download {
-        margin-left: auto; }
+      .home .content .datatable .menu {
+        display: flex;
+        margin-bottom: 20px; }
+        .home .content .datatable .menu .btn-download {
+          margin-left: auto; }
+      .home .content .datatable .table {
+        width: 100%;
+        border-collapse: collapse; }
+        .home .content .datatable .table thead {
+          background-color: #ccc; }
+          .home .content .datatable .table thead tr td {
+            text-align: center; }
+        .home .content .datatable .table tbody tr td {
+          text-align: center; }
 

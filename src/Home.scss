@@ -107,6 +107,9 @@ body {
             &.btn-orange {
                 background-color: #fcae73;
             }
+            &.btn-small {
+                min-width: 50px;
+            }
         }
 
         .action {
@@ -125,15 +128,37 @@ body {
         }
         .datatable {
             box-sizing: border-box;
-            display: flex;
             border-radius: 5px;
             width: 100%;
             background-color: white;
             margin-top: 35px;
             padding: 5px;
             border: 1px #eceef1 solid;
-            .btn-download {
-                margin-left: auto;
+            .menu {
+                display: flex;
+                margin-bottom: 20px;
+                .btn-download {
+                    margin-left: auto;
+                }
+            }
+            .table {
+                width: 100%;
+                border-collapse: collapse;
+                thead {
+                    background-color: #ccc;
+                    tr {
+                        td {
+                            text-align: center;
+                        }
+                    }
+                }
+                tbody {
+                    tr {
+                        td {
+                            text-align: center;
+                        }
+                    }
+                }
             }
         }
     }
