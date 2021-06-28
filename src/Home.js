@@ -197,7 +197,7 @@ const Home = () => {
                                                     setDeleteId(data.id);
                                                 }}
                                             >
-                                                <i className="fas fa-edit"></i>
+                                                <i class="fas fa-trash"></i>
                                             </button>
                                         </td>
                                     </tr>
@@ -209,6 +209,7 @@ const Home = () => {
             {isModalAddOpen && (
                 <Modal onClose={(bool) => setIsModalAddOpen(bool)}>
                     <form onSubmit={onSubmit}>
+                        <div>Add Customer</div>
                         <input
                             placeholder="code"
                             name="code"
@@ -264,6 +265,7 @@ const Home = () => {
             {isModalEditOpen && (
                 <Modal onClose={(bool) => setIsModalEditOpen(bool)}>
                     <form onSubmit={onSubmitEdit}>
+                        <div>Edit Customer</div>
                         <input
                             placeholder="code"
                             name="code"
@@ -323,7 +325,8 @@ const Home = () => {
             {isModalDeleteOpen && (
                 <Modal onClose={(bool) => setIsModalDeleteOpen(bool)}>
                     <>
-                        Are you sure?
+                        <div>Delete Customer</div>
+                        <div>Are you sure?</div>
                         <button onClick={() => setIsSubmitDelete(true)}>
                             Yes
                         </button>
