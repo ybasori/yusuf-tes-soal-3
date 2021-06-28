@@ -1,13 +1,34 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto|Poppins|PT+Sans|Nunito+Sans);
-html, body {
+.modal-comp {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .modal-comp .background {
+    background-color: rgba(0, 0, 0, 0.123);
+    width: 100%;
+    height: 100%;
+    position: absolute; }
+  .modal-comp .modal {
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    border: #fafafa 1px solid;
+    border-radius: 5px;
+    box-shadow: 5px 10px 30px #888888; }
+
+html,
+body {
   margin: 0;
   background-color: #f4f6f8; }
 
-#app {
+.app {
   display: flex;
   gap: 1.5rem; }
-  #app .sidebar {
-    font-family: Poppins;
+  .app .sidebar {
+    font-family: Poppins, Arial, Helvetica, sans-serif;
     display: flex;
     flex: 2;
     flex-direction: column;
@@ -16,47 +37,47 @@ html, body {
     border-bottom-right-radius: 10px;
     height: 100vh;
     box-shadow: 5px 10px 30px #888888; }
-    #app .sidebar .app-name {
-      font-family: Poppins;
+    .app .sidebar .app-name {
+      font-family: Poppins, Arial, Helvetica, sans-serif;
       margin-top: 10px;
       color: #2386df;
       font-size: 20px;
       text-align: center;
       font-weight: bold; }
-    #app .sidebar .description {
-      font-family: Poppins;
+    .app .sidebar .description {
+      font-family: Poppins, Arial, Helvetica, sans-serif;
       border: #fafafa 1px solid;
       border-radius: 5px;
       margin: 20px;
       padding: 20px; }
-    #app .sidebar .sparator {
+    .app .sidebar .sparator {
       width: 100%;
       height: 3px;
       background-color: #fafafa; }
-    #app .sidebar .menu ul li {
+    .app .sidebar .menu ul li {
       list-style: none;
       margin-bottom: 20px; }
-      #app .sidebar .menu ul li .fas {
+      .app .sidebar .menu ul li .fas {
         color: #4d9de6;
         margin-right: 5px;
         width: 20px; }
-  #app .content {
-    font-family: Poppins;
+  .app .content {
+    font-family: Poppins, Arial, Helvetica, sans-serif;
     display: flex;
     flex: 9;
     flex-direction: column;
     margin-right: 30px; }
-    #app .content .navbar {
+    .app .content .navbar {
       display: flex;
       padding-top: 10px;
       padding-bottom: 10px; }
-      #app .content .navbar .lang {
+      .app .content .navbar .lang {
         display: flex;
         margin-left: auto; }
-      #app .content .navbar .account {
+      .app .content .navbar .account {
         display: flex;
         align-items: center; }
-        #app .content .navbar .account .photo {
+        .app .content .navbar .account .photo {
           display: flex;
           background-color: #c2185b;
           border-radius: 50%;
@@ -66,34 +87,35 @@ html, body {
           align-items: center;
           color: white;
           margin-right: 5px; }
-    #app .content .page-name {
+    .app .content .page-name {
       margin-top: 60px;
       font-size: 30px;
       color: #5e666b; }
-    #app .content button {
+    .app .content button {
+      cursor: pointer;
       min-width: 175px;
       border: none;
       padding: 10px;
       color: white;
       border-radius: 5px; }
-      #app .content button.btn-blue {
+      .app .content button.btn-blue {
         background-color: #2285df; }
-      #app .content button.btn-green {
+      .app .content button.btn-green {
         background-color: #4eaf52; }
-      #app .content button.btn-orange {
+      .app .content button.btn-orange {
         background-color: #fcae73; }
-    #app .content .action {
+    .app .content .action {
       display: flex;
       gap: 1rem;
       width: 100%; }
-      #app .content .action form {
+      .app .content .action form {
         margin-left: auto; }
-        #app .content .action form input {
+        .app .content .action form input {
           width: 250px;
           padding: 10px;
           border: 1px #e4e6e7 solid;
           border-radius: 5px; }
-    #app .content .datatable {
+    .app .content .datatable {
       box-sizing: border-box;
       display: flex;
       border-radius: 5px;
@@ -102,6 +124,6 @@ html, body {
       margin-top: 35px;
       padding: 5px;
       border: 1px #eceef1 solid; }
-      #app .content .datatable .btn-download {
+      .app .content .datatable .btn-download {
         margin-left: auto; }
 
