@@ -17,17 +17,18 @@
     background-color: white;
     border: #fafafa 1px solid;
     border-radius: 5px;
-    box-shadow: 5px 10px 30px #888888; }
+    box-shadow: 5px 10px 30px #888888;
+    z-index: 10; }
 
 html,
 body {
   margin: 0;
   background-color: #f4f6f8; }
 
-.app {
+.home {
   display: flex;
   gap: 1.5rem; }
-  .app .sidebar {
+  .home .sidebar {
     font-family: Poppins, Arial, Helvetica, sans-serif;
     display: flex;
     flex: 2;
@@ -37,47 +38,47 @@ body {
     border-bottom-right-radius: 10px;
     height: 100vh;
     box-shadow: 5px 10px 30px #888888; }
-    .app .sidebar .app-name {
+    .home .sidebar .app-name {
       font-family: Poppins, Arial, Helvetica, sans-serif;
       margin-top: 10px;
       color: #2386df;
       font-size: 20px;
       text-align: center;
       font-weight: bold; }
-    .app .sidebar .description {
+    .home .sidebar .description {
       font-family: Poppins, Arial, Helvetica, sans-serif;
       border: #fafafa 1px solid;
       border-radius: 5px;
       margin: 20px;
       padding: 20px; }
-    .app .sidebar .sparator {
+    .home .sidebar .sparator {
       width: 100%;
       height: 3px;
       background-color: #fafafa; }
-    .app .sidebar .menu ul li {
+    .home .sidebar .menu ul li {
       list-style: none;
       margin-bottom: 20px; }
-      .app .sidebar .menu ul li .fas {
+      .home .sidebar .menu ul li .fas {
         color: #4d9de6;
         margin-right: 5px;
         width: 20px; }
-  .app .content {
+  .home .content {
     font-family: Poppins, Arial, Helvetica, sans-serif;
     display: flex;
     flex: 9;
     flex-direction: column;
     margin-right: 30px; }
-    .app .content .navbar {
+    .home .content .navbar {
       display: flex;
       padding-top: 10px;
       padding-bottom: 10px; }
-      .app .content .navbar .lang {
+      .home .content .navbar .lang {
         display: flex;
         margin-left: auto; }
-      .app .content .navbar .account {
+      .home .content .navbar .account {
         display: flex;
         align-items: center; }
-        .app .content .navbar .account .photo {
+        .home .content .navbar .account .photo {
           display: flex;
           background-color: #c2185b;
           border-radius: 50%;
@@ -87,35 +88,35 @@ body {
           align-items: center;
           color: white;
           margin-right: 5px; }
-    .app .content .page-name {
+    .home .content .page-name {
       margin-top: 60px;
       font-size: 30px;
       color: #5e666b; }
-    .app .content button {
+    .home .content button {
       cursor: pointer;
       min-width: 175px;
       border: none;
       padding: 10px;
       color: white;
       border-radius: 5px; }
-      .app .content button.btn-blue {
+      .home .content button.btn-blue {
         background-color: #2285df; }
-      .app .content button.btn-green {
+      .home .content button.btn-green {
         background-color: #4eaf52; }
-      .app .content button.btn-orange {
+      .home .content button.btn-orange {
         background-color: #fcae73; }
-    .app .content .action {
+    .home .content .action {
       display: flex;
       gap: 1rem;
       width: 100%; }
-      .app .content .action form {
+      .home .content .action form {
         margin-left: auto; }
-        .app .content .action form input {
+        .home .content .action form input {
           width: 250px;
           padding: 10px;
           border: 1px #e4e6e7 solid;
           border-radius: 5px; }
-    .app .content .datatable {
+    .home .content .datatable {
       box-sizing: border-box;
       display: flex;
       border-radius: 5px;
@@ -124,6 +125,6 @@ body {
       margin-top: 35px;
       padding: 5px;
       border: 1px #eceef1 solid; }
-      .app .content .datatable .btn-download {
+      .home .content .datatable .btn-download {
         margin-left: auto; }
 
