@@ -93,6 +93,50 @@ app.get("/api/v1/wilayah/:id", (req, res) => {
     });
 });
 
+app.get("/api/v1/auth/register", (req, res) => {
+    let form = { email: req.body.email, password: req.body.password };
+    bcrypt.hash(form.password, 10, function (err, hash) {
+        let query = `INSERT INTO user (${Object.keys(form).join(
+            ","
+        )}) VALUES (${Object.keys(form)
+            .map((item) => (item ? `'${item}'` : `''`))
+            .join(",")})`;
+        client.query(query, (err, result) => {
+            if (err) throw err;
+            res.json({
+                msg: "success",
+            });
+        });
+    });
+});
+
+app.get("/api/v1/auth/login", (req, res) => {
+    let query = `SELECT * FROM user WHERE email='${req.body.email}'`;
+    client.query(query, (err, result) => {
+        if (err) throw err;
+
+        if (result.rows.length > 0) {
+            let user = result.rows[0];
+            bcrypt.compare(user.password, hash, function (err, result) {
+                if (result) {
+                    res.json({
+                        msg: "success",
+                        data: result.rows[0],
+                    });
+                } else {
+                    res.json({
+                        msg: "wrong password",
+                    });
+                }
+            });
+        } else {
+            res.json({
+                msg: "email not registered!",
+            });
+        }
+    });
+});
+
 app.get("**", function (req, res) {
     return res.sendFile(path.resolve(`public/index.html`));
 });
