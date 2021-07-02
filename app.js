@@ -5,6 +5,8 @@ const bcrypt = require("bcrypt");
 const app = express();
 const port = process.env.PORT || 5000;
 const cors = require("cors");
+app.use(cors());
+app.options("*", cors());
 var bodyParser = require("body-parser");
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -24,7 +26,6 @@ const client = new Client({
     ssl: { rejectUnauthorized: false },
 });
 client.connect();
-app.use(cors());
 app.use("/assets", express.static("public/assets"));
 
 app.use(
