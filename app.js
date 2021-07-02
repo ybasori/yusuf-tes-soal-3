@@ -107,15 +107,15 @@ app.post("/api/v1/auth/register", (req, res) => {
     let form = { email: req.body.email, password: req.body.password };
     bcrypt.hash(form.password, 10, function (err, hash) {
         form.password = hash;
+        let query = `INSERT INTO user (${Object.keys(form).join(
+            ","
+        )}) VALUES (${Object.keys(form)
+            .map((key) => (form[key] ? `'${form[key]}'` : `''`))
+            .join(",")})`;
         res.json({
             msg: "success",
-            data: form,
+            data: query,
         });
-        // let query = `INSERT INTO user (${Object.keys(form).join(
-        //     ","
-        // )}) VALUES (${Object.keys(form)
-        //     .map((item) => (item ? `'${item}'` : `''`))
-        //     .join(",")})`;
         // client.query(query, (err, result) => {
         //     if (err) throw err;
         //     res.json({
