@@ -96,6 +96,9 @@ app.get("/api/v1/wilayah/:id", (req, res) => {
 app.post("/api/v1/auth/register", (req, res) => {
     let form = { email: req.body.email, password: req.body.password };
     bcrypt.hash(form.password, 10, function (err, hash) {
+        if (err) {
+            return res.send(err);
+        }
         form.password = hash;
         res.json({
             msg: "success",
