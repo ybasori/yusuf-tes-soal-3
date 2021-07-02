@@ -128,8 +128,8 @@ app.post("/api/v1/auth/login", (req, res) => {
 
         if (result.rows.length > 0) {
             let user = result.rows[0];
-            bcrypt.compare(user.password, hash, function (err, result) {
-                if (result) {
+            bcrypt.compare(user.password, hash, function (err, check) {
+                if (check) {
                     res.json({
                         msg: "success",
                         data: result.rows[0],
