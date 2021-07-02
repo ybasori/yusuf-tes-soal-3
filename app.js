@@ -93,7 +93,7 @@ app.get("/api/v1/wilayah/:id", (req, res) => {
     });
 });
 
-app.get("/api/v1/auth/register", (req, res) => {
+app.post("/api/v1/auth/register", (req, res) => {
     let form = { email: req.body.email, password: req.body.password };
     bcrypt.hash(form.password, 10, function (err, hash) {
         let query = `INSERT INTO user (${Object.keys(form).join(
@@ -110,7 +110,7 @@ app.get("/api/v1/auth/register", (req, res) => {
     });
 });
 
-app.get("/api/v1/auth/login", (req, res) => {
+app.post("/api/v1/auth/login", (req, res) => {
     let query = `SELECT * FROM user WHERE email='${req.body.email}'`;
     client.query(query, (err, result) => {
         if (err) throw err;
