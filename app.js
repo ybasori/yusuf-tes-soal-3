@@ -4,17 +4,17 @@ const bcrypt = require("bcrypt");
 
 const app = express();
 const port = process.env.PORT || 5000;
-// const cors = require("cors");
-// app.use(cors());
-// app.options("*", cors());
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header(
-        "Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept"
-    );
-    next();
-});
+const cors = require("cors");
+app.use(cors());
+app.options("*", cors());
+// app.use(function (req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header(
+//         "Access-Control-Allow-Headers",
+//         "Origin, X-Requested-With, Content-Type, Accept"
+//     );
+//     next();
+// });
 var bodyParser = require("body-parser");
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -107,17 +107,21 @@ app.post("/api/v1/auth/register", (req, res) => {
     let form = { email: req.body.email, password: req.body.password };
     bcrypt.hash(form.password, 10, function (err, hash) {
         form.password = hash;
-        let query = `INSERT INTO user (${Object.keys(form).join(
-            ","
-        )}) VALUES (${Object.keys(form)
-            .map((item) => (item ? `'${item}'` : `''`))
-            .join(",")})`;
-        client.query(query, (err, result) => {
-            if (err) throw err;
-            res.json({
-                msg: "success",
-            });
+        res.json({
+            msg: "success",
+            data: form,
         });
+        // let query = `INSERT INTO user (${Object.keys(form).join(
+        //     ","
+        // )}) VALUES (${Object.keys(form)
+        //     .map((item) => (item ? `'${item}'` : `''`))
+        //     .join(",")})`;
+        // client.query(query, (err, result) => {
+        //     if (err) throw err;
+        //     res.json({
+        //         msg: "success",
+        //     });
+        // });
     });
 });
 
