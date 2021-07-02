@@ -95,23 +95,24 @@ app.get("/api/v1/wilayah/:id", (req, res) => {
 
 app.post("/api/v1/auth/register", (req, res) => {
     let form = { email: req.body.email, password: req.body.password };
-    res.json({
-        msg: "success",
-        data: form,
+    bcrypt.hash(form.password, 10, function (err, hash) {
+        form.password = hash;
+        res.json({
+            msg: "success",
+            data: form,
+        });
+        // let query = `INSERT INTO user (${Object.keys(form).join(
+        //     ","
+        // )}) VALUES (${Object.keys(form)
+        //     .map((item) => (item ? `'${item}'` : `''`))
+        //     .join(",")})`;
+        // client.query(query, (err, result) => {
+        //     if (err) throw err;
+        //     res.json({
+        //         msg: "success",
+        //     });
+        // });
     });
-    // bcrypt.hash(form.password, 10, function (err, hash) {
-    //     let query = `INSERT INTO user (${Object.keys(form).join(
-    //         ","
-    //     )}) VALUES (${Object.keys(form)
-    //         .map((item) => (item ? `'${item}'` : `''`))
-    //         .join(",")})`;
-    //     client.query(query, (err, result) => {
-    //         if (err) throw err;
-    //         res.json({
-    //             msg: "success",
-    //         });
-    //     });
-    // });
 });
 
 app.post("/api/v1/auth/login", (req, res) => {
