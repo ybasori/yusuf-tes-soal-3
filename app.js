@@ -128,22 +128,22 @@ app.post("/api/v1/auth/login", (req, res) => {
 
         if (result.rows.length > 0) {
             let user = result.rows[0];
-            res.json({
-                msg: "wrong password",
-                data: user,
-            });
-            // bcrypt.compare(user.password, hash, function (err, check) {
-            //     if (check) {
-            //         res.json({
-            //             msg: "success",
-            //             data: result.rows[0],
-            //         });
-            //     } else {
-            //         res.json({
-            //             msg: "wrong password",
-            //         });
-            //     }
-            // });
+            bcrypt.compare(
+                req.body.password,
+                user.password,
+                function (err, check) {
+                    if (check) {
+                        res.json({
+                            msg: "success",
+                            data: result.rows[0],
+                        });
+                    } else {
+                        res.json({
+                            msg: "wrong password",
+                        });
+                    }
+                }
+            );
         } else {
             res.json({
                 msg: "email not registered!",
