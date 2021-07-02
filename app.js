@@ -71,6 +71,16 @@ app.delete("/customer/:id", (req, res) => {
     });
 });
 
+app.get("/api/v1/province", (req, res) => {
+    let query = `SELECT * FROM wilayah WHERE parent_id='0'`;
+    client.query(query, (err, result) => {
+        if (err) throw err;
+        res.json({
+            msg: "success",
+        });
+    });
+});
+
 app.get("**", function (req, res) {
     return res.sendFile(path.resolve(`public/index.html`));
 });
