@@ -107,26 +107,22 @@ app.post("/api/v1/auth/register", (req, res) => {
     let form = { email: req.body.email, password: req.body.password };
     bcrypt.hash(form.password, 10, function (err, hash) {
         form.password = hash;
-        let query = `INSERT INTO user (${Object.keys(form).join(
+        let query = `INSERT INTO "user" (${Object.keys(form).join(
             ","
         )}) VALUES (${Object.keys(form)
             .map((key) => (form[key] ? `'${form[key]}'` : `''`))
             .join(",")})`;
-        res.json({
-            msg: "success",
-            data: query,
+        client.query(query, (err, result) => {
+            if (err) throw err;
+            res.json({
+                msg: "success",
+            });
         });
-        // client.query(query, (err, result) => {
-        //     if (err) throw err;
-        //     res.json({
-        //         msg: "success",
-        //     });
-        // });
     });
 });
 
 app.post("/api/v1/auth/login", (req, res) => {
-    let query = `SELECT * FROM user WHERE email='${req.body.email}'`;
+    let query = `SELECT * FROM "user" WHERE email='${req.body.email}'`;
     client.query(query, (err, result) => {
         if (err) throw err;
 
